@@ -19,5 +19,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/createcarro', [CarroController::class, 'create']);
+Route::get('/excluir/{id}', [CarroController::class, 'excluir']);
 Route::get('/dashboard', [CarroController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 require __DIR__.'/auth.php';

@@ -48,8 +48,10 @@ class CarroController extends Controller
 
 
 
-    public function delete(): RedirectResponse
-    {
+    public function excluir(Request $req, $id){
+        $carro = Carro::find($id);
+        $carro->delete();
+        return redirect()->route('dashboard')->with('success', 'Veículo cadastrado com sucesso!');
     }
 
     public function edit(Request $request): View

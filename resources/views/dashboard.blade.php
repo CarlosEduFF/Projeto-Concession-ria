@@ -92,8 +92,9 @@
                         <div class="flex space-x-2 mt-4">
                             <button
                                 class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-700 focus:outline-none">Editar</button>
-                            <button
+                                <a href="/excluir/{{ $carro->id}}" > <button
                                 class="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-lg hover:bg-red-700 focus:outline-none">Excluir</button>
+                                </a>
                         </div>
                     </div>
                 </div>
