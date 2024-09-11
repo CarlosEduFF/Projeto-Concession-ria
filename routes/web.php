@@ -28,5 +28,7 @@ Route::get('/atualizar', function () {
     return view('atualizacao');
 });
 
-Route::post("/atualizar/{id}", [CarroController::class, 'atualizar']);
-Route::get("/editar/{id}",[CarroController::class, 'editar'])->name('Editar.carro');
+Route::post("/atualizar/{id}", [CarroController::class, 'atualizar'])->name('atualizar.carro');
+
+// Exibe o formulário de edição do carro com o ID fornecido
+Route::get("/editar/{id}", [CarroController::class, 'editar'])->name('editar.carro');

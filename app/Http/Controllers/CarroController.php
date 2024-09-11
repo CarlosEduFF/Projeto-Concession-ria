@@ -92,9 +92,43 @@ class CarroController extends Controller
         return Redirect::to('/');
     }
 
-    public function editar(Request $req){
-        $carros = Carro::find($req->id);
-        return view('editar')->with("carro", $carros);
+    public function editar($id)
+    {
+        // Lógica para exibir o formulário de edição
+        $carro = Carro::findOrFail($id);
+        return view('editar', compact('carro'));
     }
+
+    public function atualizar(Request $request, $id)
+{
+    // Obtenha o carro usando o ID
+    $carro = Carro::findOrFail($id);
+
+    // Atualize os campos com os valores do formulário
+    $carro->marca = $request->input('Marca');
+    $carro->ano = $request->input('Ano');
+    $carro->cambio = $request->input('Cambio');
+    $carro->ar_condicionado = $request->input('ArCondicionado');
+    $carro->cor = $request->input('Cor');
+    $carro->combustivel = $request->input('Combustivel');
+    $carro->placa = $request->input('Placa');
+
+    // Verifique se uma nova foto foi enviada e atualize-a
+    if ($request->hasFile('FotoCarro')) {
+        // Exclua a foto antiga se ela existir
+        if ($carro->Foto) {
+            Storage::disk('public')->delete($carro->Foto);
+        }
+        // Armazene a nova foto e atualize o caminho
+        $path = $request->file('FotoCarro')->store('veiculos', 'public');
+        $carro->Foto = $path;
+    }
+
+    // Salve as mudanças
+    $carro->save();
+
+    // Redirecione para a página de gerenciamento de carros com uma mensagem de sucesso
+    return redirect()->route('dashboard')->with('success', 'Carro atualizado com sucesso!');
+}
 }
 

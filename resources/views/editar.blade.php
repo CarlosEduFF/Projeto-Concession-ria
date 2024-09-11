@@ -118,7 +118,7 @@
 </nav>
 <!-- FINAL DO Navbar-->
 
-        <div class="w-full">
+<div class="w-full">
     <div class="h-96"></div>
     <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
     <div class="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
@@ -127,13 +127,17 @@
             @csrf
             <!-- Primeira linha de inputs -->
             <div class="md:flex items-center mt-12">
-                <div class="w-full md:w-1/2 flex flex-col mt-4">
-                    <label class="font-semibold leading-none">Marca</label>
-                    <input type="text"  name="titulo" placeholder="Marca" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
+                <div class="w-full md:w-1/3 flex flex-col mt-4 mr-4">
+                    <label class="font-semibold leading-none">Modelo</label>
+                    <input type="text"  name="Marca" placeholder="Marca" value="{{$carro->modelo}}" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
                 </div>
-                <div class="w-full md:w-1/2 flex flex-col mt-4 md:ml-4">
-                    <label class="font-semibold leading-none">ano</label>
-                    <input type="date" name="ano"  placeholder="Ex: 2024/05/10" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
+                <div class="w-full md:w-1/3 flex flex-col mt-4">
+                    <label class="font-semibold leading-none">Marca</label>
+                    <input type="text"  name="Marca" placeholder="Marca" value="{{$carro->marca}}" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
+                </div>
+                <div class="w-full md:w-1/3 flex flex-col mt-4 md:ml-4">
+                    <label class="font-semibold leading-none">Ano</label>
+                    <input type="text" name="Ano"  placeholder="Ex: 2024/05/10" value="{{$carro->ano}}" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
                 </div>
             </div>
             
@@ -141,11 +145,11 @@
             <div class="md:flex items-center mt-6">
                 <div class="w-full md:w-1/2 flex flex-col mt-4">
                     <label class="font-semibold leading-none">Cambio</label>
-                    <input type="text" name="cambio"  placeholder="Ex: A10" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
+                    <input type="text" name="Cambio"  placeholder="Ex: A10" value="{{$carro->cambio}}" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
                 </div>
                 <div class="w-full md:w-1/2 flex flex-col mt-4 md:ml-4">
                     <label class="font-semibold leading-none">Ar-Condicionado</label>
-                    <input type="text" name="Ar-con"  placeholder="Ficção" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
+                    <input type="text" name="ArCondicionado"  placeholder="Ficção" value="{{$carro->ar_condicionado}}" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
                 </div>
             </div>
 
@@ -153,30 +157,30 @@
             <div class="md:flex items-center mt-6">
                 <div class="w-full md:w-1/3 flex flex-col mt-4">
                     <label class="font-semibold leading-none">Cor</label>
-                    <input type="text" name="pontuacao"  placeholder="Ex: Azul" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
+                    <input type="text" name="Cor"  placeholder="Ex: Azul" value="{{$carro->cor}}" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
                 </div>
                  <!-- quarta linha de inputs -->
                 <div class="w-full md:w-1/3 flex flex-col mt-4 md:ml-4">
                     <label class="font-semibold leading-none">Combustivel</label>
-                    <input type="text" name="combustivel"  placeholder="Ex: Gasolina" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
+                    <input type="text" name="Combustivel"  placeholder="Ex: Gasolina" value="{{$carro->combustivel}}" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
                 </div>
                  <!-- Quinta linha de inputs -->
                 <div class="w-full md:w-1/3 flex flex-col mt-4 md:ml-4">
-                    <label class="font-semibold leading-none">placa</label>
-                    <input type="text" name="empresa"  placeholder="CAD-E190" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
+                    <label class="font-semibold leading-none">Placa</label>
+                    <input type="text" name="Placa"  placeholder="CAD-E190" value="{{$carro->placa}}" class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-3 bg-gray-200 border rounded border-gray-200" />
                 </div>
             </div>
-               <!-- TSexta linha de inputs -->
+               <!-- Sexta linha de inputs -->
             <div class="md:flex items-center mt-12">
                         <div class="w-full flex md:w-1/2 flex-col md:ml-6 md:mt-0 mt-4">
                             <label class="font-semibold leading-none">Foto Atual</label>
-                          @if($carro->capa)
-                           <img src="{{asset('storage/' . $carro->foto)}}" alt="capa anterior " class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-2 bg-gray-200 border rounded border-gray-200 size-3/5">
+                          @if($carro->Foto)
+                           <img src="{{asset('storage/' . $carro->Foto)}}" alt="capa anterior " class="leading-none text-gray-900 p-2 focus:outline-none focus:border-blue-700 mt-2 bg-gray-200 border rounded border-gray-200 size-3/5">
                            @endif
                     </div>
                     <div class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
                         <label class="font-semibold leading-none">Foto</label>
-                        <input type="file" name="capa" value="{{$carro->foto}}"  class="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-2 bg-gray-200 border rounded border-gray-200"/>
+                        <input type="file" name="FotoCarro" value="{{$carro->Foto}}"  class="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-2 bg-gray-200 border rounded border-gray-200"/>
                     </div>
                 </div>
 
